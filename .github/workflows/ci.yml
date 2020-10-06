@@ -9,7 +9,7 @@ on:
     
 env: 
   work_dir: 'src'
-  jsonfile: ./.gcloud/foo.json
+  jsonfile: ./foo.json
   json_from_secret: ${{secrets.JSON_FILE}}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -44,7 +44,7 @@ jobs:
         working-directory: src
       - name: Run another script
         run: |
-          'echo "$json_file_in_steps" > ./.gcloud/foo.json'
-          cat ./.gcloud/foo.json
+          'echo "$json_file_in_steps" > ./foo.json'
+          cat ./foo.json
         env: 
           json_file_in_steps: ${{secrets.JSON_FILE}}
