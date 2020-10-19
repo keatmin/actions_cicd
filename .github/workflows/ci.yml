@@ -31,7 +31,7 @@ jobs:
           echo `ls`
           echo $json_from_secret 
           echo $(pwd)
-          cd .. | echo `ls`
+          cd .. && echo `ls`
           cat ../.github/hello.txt
         working-directory: ${{ env.work_dir }}
 
