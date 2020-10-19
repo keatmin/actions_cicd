@@ -32,6 +32,8 @@ jobs:
         run: |
           echo `ls`
           echo $json_from_secret
+          echo $(pwd)
+          cat ./.github/hello.txt
         working-directory: ${{ env.work_dir }}
 
       # Runs a set of commands using the runners shell
