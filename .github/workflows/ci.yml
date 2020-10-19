@@ -1,11 +1,9 @@
 # This is a basic workflow to help you get started with Actions
-
 name: CI
-
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  pull_request:
+  pull_request
     branches: [ master ]
     paths: 'src/**'
     
@@ -25,13 +23,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        
+      
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
           echo `ls`
-          echo $json_from_secret
+          echo $json_from_secret 
           echo $(pwd)
           cat ./.github/hello.txt
         working-directory: ${{ env.work_dir }}
