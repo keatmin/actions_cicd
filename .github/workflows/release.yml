@@ -11,7 +11,8 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  new_release:
+    name: "New Release"
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -33,7 +34,9 @@ jobs:
         id: changes
         with:
           base: v0.1.0 # Change detection against merge-base with this branch
-          filters: src/main.py
+          filters: |
+            main: src/main.py
+            extract: src/extract/**
 
       - name: Echo results
         id: results
