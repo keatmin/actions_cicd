@@ -27,9 +27,12 @@ jobs:
 
       - name: 'Get Previous tag'
         id: previoustag
-        uses: WyriHaximus/github-action-get-previous-tag@v1.1.0
-        with:
-          fallback: v0.1.0
+        run: |
+          echo $(git status)
+          tag=$(usr/bin/git describe --tags $(usr/bin/git rev-list --tags --max-count=1 --skip=1))
+          echo '::set-output name=tag::$tag'
+
+          
 
       - name: Detect changes
         uses: dorny/paths-filter@v2
