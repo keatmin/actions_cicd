@@ -29,7 +29,6 @@ jobs:
       - name: 'Get Previous tag'
         id: previoustag
         run: |
-          echo "$(git rev-list --tags --max-count=1 -skip=1)"
           TAG=$(git describe --tags $(git rev-list --tags --max-count=1 --skip=1))
           echo $TAG
           echo "::set-output name=tag::$TAG"
