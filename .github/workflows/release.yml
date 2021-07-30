@@ -21,6 +21,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
 
       - name: 'Get Previous tag'
@@ -33,7 +35,7 @@ jobs:
         uses: dorny/paths-filter@v2
         id: changes
         with:
-          base: v0.1.0 # Change detection against merge-base with this branch
+          base: ${{ steps.previoustag.outputs.tag }} # Change detection against merge-base with this branch
           filters: |
             main: src/main.py
             extract: src/extract/**
@@ -41,4 +43,5 @@ jobs:
       - name: Echo results
         id: results
         run: |
-          echo "${{ steps.changes.output.changes }}" 
+          echo "${{ steps.changes.output.main.changes }}" 
+          echo "${{ steps.changes.output.extract.changes }}"
