@@ -37,7 +37,7 @@ jobs:
             extract:
               - src/extract/**  
             sql:
-              - '*.sql'
+              - '**/*.sql'
 
       - name: Echo results
         id: results
