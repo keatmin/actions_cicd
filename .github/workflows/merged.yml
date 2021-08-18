@@ -41,4 +41,4 @@ jobs:
         run: |
           echo ${{ steps.changes.outputs.main_files }} 
           echo ${{ steps.changes.outputs.extract_files }}
-          echo ${{ steps.changes.outputs.sql_files }}
+          echo ${{ steps.changes.outputs.sql_files }} | awk -F '/' '{ print $NF }' | sed "s/\.sql$/${children}/g" | tr '\n' ' '
