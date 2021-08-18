@@ -39,6 +39,6 @@ jobs:
       - name: Echo results
         id: results
         run: |
-          echo ${{ steps.changes.output.main_files }} 
-          echo ${{ steps.changes.output.extract_files }}
-          echo ${{ steps.changes.output.sql_files }}
+          echo ${{ steps.changes.outputs.main_files }} 
+          echo ${{ steps.changes.outputs.extract_files }}
+          echo ${{ steps.changes.outputs.sql_files }}

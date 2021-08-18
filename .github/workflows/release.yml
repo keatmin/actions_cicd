@@ -36,6 +36,7 @@ jobs:
         id: changes
         with:
           base: ${{ steps.previoustag.outputs.tag }} # Change detection against merge-base with this branch
+          list-files: "shell"
           filters: |
             main: src/main.py
             extract: src/extract/**
