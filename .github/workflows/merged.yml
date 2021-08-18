@@ -18,6 +18,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     outputs:
       changed: ${{ steps.changes.outputs.sql_files }}
+      sql: ${{ steps.changes.outputs.sql }}
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout code
