@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
+    outputs:
+      changed: ${{ steps.changes.outputs.sql_files }}
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout code
@@ -45,7 +47,7 @@ jobs:
   other_stuff:
     name: "New Fancy Stuff"
     needs: new_release
-    if: ${{ needs.new_release.outputs.sql }} == 'true'
+    if: ${{ needs.new_release.outputs.sql == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Echo stuff
