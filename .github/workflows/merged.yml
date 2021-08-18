@@ -42,3 +42,11 @@ jobs:
           echo ${{ steps.changes.outputs.main_files }} 
           echo ${{ steps.changes.outputs.extract_files }}
           echo ${{ steps.changes.outputs.sql_files }} | tr ' ' '\n' | awk -F '/' '{ print $NF }' | sed "s/\.sql$/${children}/g" | tr '\n' ' '
+  other_stuff:
+    name: "New Fancy Stuff"
+    needs: new_release
+    if: ${{ needs.new_release.outputs.sql }} == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo stuff
+        run: echo hellow
