@@ -52,4 +52,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo stuff
-        run: echo ${{ needs.new_release.outputs.changed }} | tr ' ' '\n' | awk -F '/' '{ print $NF }' | sed "s/\.sql$/${children}/g" | tr '\n' ' '
+        run: |
+          models=$(echo ${{ needs.new_release.outputs.changed }} | tr ' ' '\n' | awk -F '/' '{ print $NF }' | sed "s/\.sql$/${children}/g" | tr '\n' ' ')  
+          echo $models
