@@ -1,1 +1,1 @@
-SELECT * FROM mama
+SELECT * FROM MAMA

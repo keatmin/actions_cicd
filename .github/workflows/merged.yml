@@ -38,6 +38,6 @@ jobs:
       - name: Echo results
         id: results
         run: |
-          echo ${{ steps.changes.output.main.changes }} 
-          echo ${{ steps.changes.output.extract.changes }}
-          echo ${{ steps.changes.output.sql.changes }}
+          echo {{ steps.changes.output.main.changes }} 
+          echo {{ steps.changes.output.extract.changes }}
+          echo {{ steps.changes.output.sql.changes }}
